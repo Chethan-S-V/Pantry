@@ -1,0 +1,40 @@
+<div class="container-fluid card-group">
+<p style="color: green"><%= notice %></p>
+
+  <% @food_items.each do |food_item| %>
+  <div id="food_items">
+    <% if Date.today < food_item.batch.exp_date &&  Date.today < food_item.batch.best_by %>
+    <!-- food is fresh! -->
+      <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header"><%= food_item.name %> </div>
+        <div class="card-body text-success">
+          <p class="card-text">Best by date: <%= food_item.batch.best_by %> </p>
+          <p class="card-text">Expiration date: <%= food_item.batch.expiration %> </p>
+        </div>
+      </div>
+    <% else if Date.today <= food_item.batch.exp_date &&  Date.today >= food_item.batch.best_by%>
+    <!-- food is almost not fresh -->
+      <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+        <div class="card-header"><%= food_item.name %> </div>
+        <div class="card-body text-warning">
+          <p class="card-text">Best by date: <%= food_item.batch.best_by %> </p>
+          <p class="card-text">Expiration date: <%= food_item.batch.expiration %> </p>
+          <a href="<%= charities_path %> " class="btn btn-primary">Donate this item</a>
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <!-- food is bad -->
+    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+      <div class="card-header"><%= food_item.name %> </div>
+      <div class="card-body text-danger">
+        <p class="card-text">Best by date: <%= food_item.batch.best_by %> </p>
+        <p class="card-text">Expiration date: <%= food_item.batch.expiration %> </p>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "New food item", new_food_item_path %>
+<%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete%>
