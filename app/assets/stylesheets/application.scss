@@ -1,0 +1,152 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+
+@import "font-awesome";
+
+ body {
+   font-family: monospace;
+   padding-top: 130px;
+   background-color: #f3f8fc;
+   color: #565656;
+ }
+
+ .trash {
+   display: none; /* Hide button */
+ }
+
+ .donate {
+   display: none; /* Hide button */
+ }
+
+ .deletable:hover {
+   background: #000;
+   opacity:0.5;
+   border-radius:60px;
+   .trash {
+     display: block;
+   }
+   .donate {
+     display: block;
+   }
+   i {
+     color: white;
+   }
+}
+
+ .fixedButton{
+     position: fixed;
+     bottom: 0px;
+     right: 0px;
+     // padding: 5px;
+     background-color: white;
+     border-radius: 50%;
+
+ }
+
+ .fixedIcon1{
+     position: fixed;
+     bottom: 130px;
+     right: 0px;
+     padding: 20px;
+ }
+ .fixedIcon2{
+     position: fixed;
+     bottom: 220px;
+     right: 0px;
+     padding: 20px;
+ }
+
+.slider {
+  display: none;
+  height: 300px;
+  width: 200px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  overflow-y: hidden;
+  max-height: 300px; /* approximate max height */
+
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slider.open {
+	display: block;
+}
+
+.not-so-fresh {
+  background-color: #fff2cc;
+}
+
+.fresh {
+  background-color: #d9ead3;
+}
+
+.spoiled {
+  background-color: #f4cccc;
+}
+
+.food_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+}
+#food_items {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#test {
+  height: 100vh;
+  margin-right: 10px;
+  background-color: white;
+}
+
+#scanner {
+  display: none;
+}
+
+@media (max-width: 1300px) {
+  #pantry-show {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 992px) {
+  #pantry-show {
+    max-width: 90%;
+  }
+  #scanner {
+    display: block;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  #pantry-show {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 763px) {
+
+  #test {
+    display: none;
+  }
+
+}
